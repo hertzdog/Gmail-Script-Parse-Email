@@ -10,10 +10,12 @@ and on: https://ctrlq.org/code/20019-parse-gmail-extract-data
 function parseEmailMessages() {
 
   //start = start || 0;
-
+  var now = Utilities.formatDate(new Date(), "CET", "yyyy-MM-dd'T'HH:mm:ss'Z'");
+  var fileprefix = "site-contacts-"
+  var filename = fileprefix.concat(now)
   //var threads = GmailApp.getInboxThreads(start, 100);
   //var threads = GmailApp.getUserLabelByName("varie-iscrizioni").getThreads()
-  var ss = SpreadsheetApp.create("test");
+  var ss = SpreadsheetApp.create(filename);
   var sheet = ss.getActiveSheet();
   var threads = GmailApp.search('label:varie-iscrizioni label:unread');
 
